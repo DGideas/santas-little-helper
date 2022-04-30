@@ -24,7 +24,7 @@ class AntispamKeyWord(Model):
 
 class AntispamWatchGroup(Model):
     id = IntegerField(primary_key=True)
-    chat_id = TextField(null=False, unique=True)
+    chat_id = IntegerField(null=False, unique=True)
     status = SmallIntegerField(
         choices=AntispamWatchGroupStatus,
         default=AntispamWatchGroupStatus.ST_VALID,

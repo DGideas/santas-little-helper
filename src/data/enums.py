@@ -22,6 +22,7 @@ class TelegramUpdateType(IntEnum):
     TYPE_MY_CHAT_MEMBER = 12
     TYPE_CHAT_MEMBER = 13
     TYPE_CHAT_JOIN_REQUEST = 14
+    TYPE_NEW_CHAT_MEMBER = 15
 
     @classmethod
     def isSupportedType(cls, val: "TelegramUpdateType") -> bool:
@@ -31,6 +32,7 @@ class TelegramUpdateType(IntEnum):
             cls.TYPE_MY_CHAT_MEMBER,
             cls.TYPE_CHAT_MEMBER,
             cls.TYPE_CHAT_JOIN_REQUEST,
+            cls.TYPE_NEW_CHAT_MEMBER,
         ]:
             return True
         return False
