@@ -25,6 +25,10 @@ class TgUpdate(Model):
 class SantasOperationRecord(Model):
     id = IntegerField(primary_key=True)
     engine = CharField(max_length=128, default="manual", null=False, index=True)
+    operation_type = CharField(max_length=128, null=False)
+    target = TextField(default="", null=False)
+    message = TextField(default="", null=False)
+    extra_info = TextField(default="{}", help_text="JSON 格式", null=False)
     created_time = DateTimeField(default=datetime.datetime.utcnow)
     modified_time = DateTimeField(default=datetime.datetime.utcnow)
 

@@ -1,5 +1,5 @@
 from src.data.enums import SantasWatchlistStatus
-from src.model.santas import TgChatWatchList, TgUpdate
+from src.model.santas import SantasOperationRecord, TgChatWatchList, TgUpdate
 
 from .base_dao import BaseDao, on
 
@@ -9,6 +9,11 @@ class WatchListDao(BaseDao):
     @classmethod
     def listByStatus(cls, status: SantasWatchlistStatus):
         return cls.__MODEL_CLASS__.select().where(TgChatWatchList.status == status)
+
+
+@on(SantasOperationRecord)
+class SantasOperationRecordDao(BaseDao):
+    pass
 
 
 @on(TgUpdate)

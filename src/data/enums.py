@@ -1,5 +1,7 @@
 from enum import Enum, IntEnum
 
+DURATION_INF = 1
+
 
 class TelegramUpdateType(IntEnum):
     """
@@ -37,6 +39,18 @@ class TelegramUpdateType(IntEnum):
 class SantasOperationEngine(Enum):
     ENGINE_MANUAL = "manual"
     ENGINE_ANTISPAM = "antispam"
+
+
+class SantasOperationType(Enum):
+    OP_SEND_MESSAGE = "send_message"
+    OP_BANUSER = "ban_user"
+    OP_REMOVE_USER_FROM_GROUP = "remove_user_from_group"
+    OP_REPORT_SPAM = "report spam"
+
+
+class AntispamWatchGroupStatus(IntEnum):
+    ST_VALID = 0
+    ST_INVALID = -1
 
 
 class SantasWatchlistStatus(IntEnum):
