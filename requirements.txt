@@ -1,2 +1,2 @@
 peewee==3.14
-requests
+python-telegram-bot
