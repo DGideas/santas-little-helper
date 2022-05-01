@@ -1,3 +1,4 @@
+import datetime
 import logging
 import time
 
@@ -19,6 +20,8 @@ class TelegramUpdateMessageController(object):
         latestUpdateId: int = None
         if latestUpdate:
             latestUpdateId = latestUpdate.update_id + 1
+
+        cls.cleanOldUpdateMessage()
 
         logger.info(f"Get telegram updates, offset: {latestUpdateId}")
         while True:
@@ -91,7 +94,9 @@ class TelegramUpdateMessageController(object):
                     raw_message=message,
                 )
 
-
-if __name__ == "__main__":
-    TelegramUpdateMessageController.getTelegramUpdate()
-    # bot.sendMessage("@BOTjvj1","test")
+    @classmethod
+    def cleanOldUpdateMessage(
+        cls, oldMessageThreshold: datetime.timedelta = datetime.timedelta(days=7)
+    ):
+        now = datetime.datetime.utcnow()
+        TgUpdateDao.deleteOldUpdate(now - oldMessageThreshold)

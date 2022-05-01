@@ -3,10 +3,9 @@
 
 # HOW-TO
 ## Use
-1. clone this repo & create a Python virtual environment
-2. `pip3 install -r requirements.txt`
-3. create `local_settings.py` using `local_settings_example.py` as example, you might read https://core.telegram.org/bots first.
-4. 
+1. Search @ideasLittleHelperBot via Telegram, and add it into your group
+2. Grant this bot admin rights
+3. `/active` this bot on group chat
 
 ## Development
 1. create a Python virtual environment
@@ -24,4 +23,7 @@ If you want to add a new method to this bot framework, please use https://core.t
 
 ## Host a Telegram bot
 1. create a new Telegram bot using https://t.me/botfather
-2. 
+2. clone this repo & create a Python virtual environment
+3. `pip3 install -r requirements.txt`
+4. create `local_settings.py` using `local_settings_example.py` as example, you might read https://core.telegram.org/bots first.
+5. run `main.py`

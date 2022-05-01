@@ -1,3 +1,5 @@
+import datetime
+
 from src.data.enums import SantasWatchlistStatus
 from src.model.santas import SantasOperationRecord, TgChatWatchList, TgUpdate
 
@@ -26,3 +28,11 @@ class TgUpdateDao(BaseDao):
             )
         except TgUpdate.DoesNotExist:
             return None
+
+    @classmethod
+    def deleteOldUpdate(cls, datetimeThreshold: datetime.datetime) -> int:
+        return (
+            cls.__MODEL_CLASS__.delete()
+            .where(TgUpdate.created_time < datetimeThreshold)
+            .execute()
+        )

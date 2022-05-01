@@ -41,6 +41,7 @@ class TelegramUpdateType(IntEnum):
 class SantasOperationEngine(Enum):
     ENGINE_MANUAL = "manual"
     ENGINE_ANTISPAM = "antispam"
+    ENGINE_WELCOME = "welcome"
 
 
 class SantasOperationType(Enum):
@@ -48,6 +49,7 @@ class SantasOperationType(Enum):
     OP_BANUSER = "ban_user"
     OP_REMOVE_USER_FROM_GROUP = "remove_user_from_group"
     OP_REPORT_SPAM = "report spam"
+    OP_REMOVE_MESSAGE_FROM_CHAT = "remove_message_from_chat"
 
 
 class AntispamWatchGroupStatus(IntEnum):

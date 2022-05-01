@@ -6,7 +6,9 @@ from .base_dao import BaseDao, on
 
 @on(AntispamKeyWord)
 class AntispamKeyWordDao(BaseDao):
-    ...
+    @classmethod
+    def getAllKeywords(cls):
+        return cls.__MODEL_CLASS__.select()
 
 
 @on(AntispamNewUser)
@@ -21,6 +23,14 @@ class AntispamNewUserDao(BaseDao):
             )
         except AntispamNewUser.DoesNotExist:
             return None
+
+    @classmethod
+    def deleteUserByUserId(cls, user_id: int):
+        return (
+            cls.__MODEL_CLASS__.delete()
+            .where(AntispamNewUser.user_id == user_id)
+            .execute()
+        )
 
 
 @on(AntispamWatchGroup)
